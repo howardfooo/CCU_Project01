@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+  
+  {% include "components/head-info.html" %}
+
+  <title>Comments</title>
+
+</head>
+<body class="flex flex-col items-center">
+
+  {% include "components/header.html" %}
+
+  <div class="w-[1200px]">
+    <div class="flex justify-between items-center w-[1185px]">
+
+      <!-- 餐廳名稱 -->
+      <label for="餐廳名稱" class="shadow-lg block m-3 w-96 placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-black">餐廳名稱</label>
+      
+      <div class="flex w-auto">
+  
+        <!-- 餐廳評價(星星) -->
+        <div class="flex items-center mr-3">
+          <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+          </svg>
+          <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+          </svg>
+          <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+          </svg>
+          <svg class="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+          </svg>
+          <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+          </svg>
+        </div>
+
+  
+        <!-- 查看評論 -->
+        <div class="ml-2 shadow-xl">
+          <button class="w-full px-6 py-2.5 text-sm font-bold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50">
+            前往評論
+          </button>
+        </div>
+  
+      </div>
+    </div>
+  
+    <!-- 篩選 -->
+    <div class="ml-4 w-36">
+    {% include "components/dropdown.html" %}
+    </div>
+
+    <!-- 評論 -->
+    {% for i in comment_range %}
+      <div class="flex overflow-hidden justify-between items-center shadow-lg m-3 w-auto h-32 placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold focus:border-blue-100 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40">
+        <div class="flex items-center">
+          <img src="{% static '/images/profilepicture.png' %}" class="object-contain max-h-24 rounded-2xl mr-3 shadow-xl">
+          普通好吃...............
+        </div>
+
+        <div class="flex items-end h-full">
+          <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#花枝蛋漢堡</span>
+          <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#花生醬奶茶</span>
+          <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#薯餅蛋餅</span>
+  
+          <a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200  p-2 rounded-3xl">
+            <img src="{% static '/images/like.png' %}" class="object-contain max-h-10">
+          </a>
+          <a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200   p-2 rounded-3xl">
+            <img src="{% static '/images/dislike.png' %}" class="object-contain max-h-10">
+          </a>
+        </div>
+      </div>
+      
+    {% endfor %}
+  
+
+  </div>
+
+  {% include "components/footer.html" %}
+
+  {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script> {% endcomment %}
+  <script src="{% static "/js/flowbite/dist/flowbite.min.js" %}"></script>
+</body>
+</html>

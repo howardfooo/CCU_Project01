@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+
+  {% include "components/head-info.html" %}
+
+  <title>Map</title>
+  
+</head>
+<body class="flex flex-col items-center">
+
+  {% include "components/header.html" %}
+  
+
+  <div class="w-[1200px]">
+    <div class="flex gap-4 p-3 mx-auto justify-center" style='height:34rem;'>
+
+      <div class="w-48 rounded-2xl shadow-xl relative overflow-hidden">
+        <img class="rounded-2xl h-full w-full object-cover object-center" src="{% static 'images/bgimg.jpg' %}">
+      </div>
+
+      <div class="w-full h-full bg-blue-200 rounded-2xl">
+        <div class="absolute flex space-x-3 z-10 ml-2 my-2">{% include "components/dropdown.html" %} {% include "components/dropdown.html" %}</div>
+        {% comment %} <div class="absolute z-10 ml-36 my-3">{% include "components/dropdown.html" %}</div> {% endcomment %}
+        <iframe class="w-full h-full rounded-2xl shadow-xl relative overflow-hidden hover:border-blue-300 hover:border-2 hover:border-solid " src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14629.358499539389!2d120.47031455!3d23.5562428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1szh-TW!2stw!4v1697517206490!5m2!1szh-TW!2stw" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="w-48 rounded-2xl shadow-xl relative overflow-hidden">
+        <img class="rounded-2xl h-full w-full object-cover object-center" src="{% static 'images/bgimg.jpg' %}">
+      </div>
+      
+    </div>
+  </div>
+
+  {% include "components/footer.html" %}
+
+  {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script> {% endcomment %}
+  <script src="{% static "/js/flowbite/dist/flowbite.min.js" %}"></script>
+</body>
+</html>
