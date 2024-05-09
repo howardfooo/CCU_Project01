@@ -125,3 +125,5 @@ STATICFILES_DIR = [str(BASE_DIR)+"/app/static/"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MAPBOX_KEY = 'pk.eyJ1IjoieW91c2hhbjc3IiwiYSI6ImNsdDdldDZoMzBseHoyanAzdXR5bGJmb2QifQ.vf_7WHFQFyRU60FiEMAW1Q'

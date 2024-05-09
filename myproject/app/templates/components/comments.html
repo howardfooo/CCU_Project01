@@ -1,0 +1,196 @@
+{% load static  %}
+
+{% comment %} {% for i in comment_range %}
+<div class="flex overflow-hidden justify-between items-center shadow-lg m-3 w-auto h-32 placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold focus:border-blue-100 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40">
+  <div class="flex items-center">
+    <img src="{% static '/images/profilepicture.png' %}" class="object-contain max-h-24 rounded-2xl mr-3 shadow-xl">
+    普通好吃...............
+  </div>
+
+  <div class="flex items-end h-full">
+    <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#花枝蛋漢堡</span>
+    <span class="bg-gray-100 text-gray-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#花生醬奶茶</span>
+    <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#薯餅蛋餅</span>
+
+    <a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200  p-2 rounded-3xl">
+      <img src="{% static '/images/like.png' %}" class="object-contain max-h-10">
+    </a>
+    <a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200   p-2 rounded-3xl">
+      <img src="{% static '/images/dislike.png' %}" class="object-contain max-h-10">
+    </a>
+  </div>
+</div>
+
+{% endfor %} {% endcomment %}
+
+
+<!-- 評論1 -->
+<div class="flex overflow-hidden justify-between items-end shadow-lg m-3 w-auto min-h-[128px] rounded-lg border border-gray-200 bg-white px-5 py-4 text-gray-500 font-bold">
+  <div class="flex justify-start items-start">
+		<div class="h-full mr-3 flex flex-col items-center justify-center">
+    	<img src="{% static '/images/picture/p1.jpg' %}" class="object-contain max-h-24 rounded-2xl mb-2 shadow-xl">
+			<div class="w-full flex items-center justify-center text-blue-500 text-lg">♛ ✪</div>
+			<div class="w-1/2 -mt-[2px] flex justify-center border-t-2 border-solid border-blue-500 rounded-lg"></div>
+		</div>
+		<div class="max-w-[600px] flex flex-col justify-center">
+			假日人蠻多的，薯餅蛋餅好吃，花枝蛋漢堡也不錯，整體cp值頗高，下次會再來。
+			<div class="flex">
+				<img src="{% static '/images/food/f3.jpg' %}" class="object-contain max-h-60 rounded-2xl mr-3 mt-2 shadow-xl">
+				<img src="{% static '/images/video/v1.jpg' %}" class="object-contain max-h-60 rounded-2xl mr-3 mt-2 shadow-xl">
+			</div>
+		</div>
+  </div>
+	
+	<!-- 右下角 -->
+  <div class="flex flex-row items-end justify-end h-full">
+		
+    <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#花枝蛋漢堡</span>
+    <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#薯餅蛋餅</span>
+
+		<!-- 餐廳評價(星星) -->
+		<label class="flex mr-3 shadow-lg w-fit h-fit placeholder-gray-400/70 rounded-lg border-2 border-gray-200 bg-slate-50 px-2 py-0.5 items-center">
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+		</label>
+
+
+		<div class="flex flex-col items-center">
+			<div class="flex flex-row">
+				<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+					<img src="{% static '/images/like.png' %}" class="object-contain max-h-10">
+				</a>
+				<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+					<img src="{% static '/images/dislike.png' %}" class="object-contain max-h-10">
+				</a>
+			</div>
+			<div class="flex flex-row items-center">
+				<img src="{% static '/images/like.png' %}" class="object-contain max-h-4 mx-1">
+				95% (11)
+			</div>
+		</div>
+  </div>
+</div>
+
+<!-- 評論2 -->
+<div class="flex overflow-hidden justify-between items-end shadow-lg m-3 w-auto min-h-[128px] rounded-lg border border-gray-200 bg-white px-5 py-4 text-gray-500 font-bold">
+  <div class="flex justify-start items-start">
+		<div class="h-full mr-3 flex flex-col items-center justify-center">
+    	<img src="{% static '/images/picture/p2.jpg' %}" class="object-contain max-h-24 rounded-2xl mb-2 shadow-xl">
+			<div class="w-full flex items-center justify-center text-blue-500 text-lg">♛</div>
+			<div class="w-1/4 -mt-[2px] flex justify-center border-t-2 border-solid border-blue-500 rounded-lg"></div>
+		</div>
+		<div class="max-w-[600px] flex flex-col justify-center">
+			薯餅蛋餅一般般，寧願走遠一點吃布格zz
+			<div class="flex">
+				<img src="{% static '/images/food/f2.jpg' %}" class="object-contain max-h-60 rounded-2xl mr-3 mt-2 shadow-xl">
+			</div>
+		</div>
+  </div>
+	
+	<!-- 右下角 -->
+  <div class="flex flex-row items-end justify-end h-full">
+		
+    <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#薯餅蛋餅</span>
+
+		<!-- 餐廳評價(星星) -->
+		<label class="flex mr-3 shadow-lg w-fit h-fit placeholder-gray-400/70 rounded-lg border-2 border-gray-200 bg-slate-50 px-2 py-0.5 items-center">
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+		</label>
+
+
+		<div class="flex flex-col items-center">
+			<div class="flex flex-row">
+				<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+					<img src="{% static '/images/like.png' %}" class="object-contain max-h-10">
+				</a>
+				<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+					<img src="{% static '/images/dislike.png' %}" class="object-contain max-h-10">
+				</a>
+			</div>
+			<div class="flex flex-row items-center">
+				<img src="{% static '/images/like.png' %}" class="object-contain max-h-4 mx-1">
+				57% (14)
+			</div>
+		</div>
+  </div>
+</div>
+
+<!-- 評論3 -->
+<div class="flex overflow-hidden justify-between items-end shadow-lg m-3 w-auto min-h-[128px] rounded-lg border border-gray-200 bg-white px-5 py-4 text-gray-500 font-bold">
+  <div class="flex justify-start items-center">
+		<div class="h-full mr-3 flex flex-col items-center justify-center">
+    	<img src="{% static '/images/picture/p3.jpg' %}" class="object-contain max-h-24 rounded-2xl mb-2 shadow-xl">
+		</div>
+		<div class="max-w-[600px] h-full flex flex-col justify-center">
+			還算OK
+		</div>
+  </div>
+	
+	<!-- 右下角 -->
+  <div class="flex flex-row items-end justify-end h-full">
+		
+    <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#薯餅蛋餅</span>
+
+		<!-- 餐廳評價(星星) -->
+		<label class="flex mr-3 shadow-lg w-fit h-fit placeholder-gray-400/70 rounded-lg border-2 border-gray-200 bg-slate-50 px-2 py-0.5 items-center">
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+			<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+			</svg>
+		</label>
+
+
+		<div class="flex flex-col items-center">
+			<div class="flex flex-row">
+				<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+					<img src="{% static '/images/like.png' %}" class="object-contain max-h-10">
+				</a>
+				<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+					<img src="{% static '/images/dislike.png' %}" class="object-contain max-h-10">
+				</a>
+			</div>
+			<div class="flex flex-row items-center">
+				<img src="{% static '/images/like.png' %}" class="object-contain max-h-4 mx-1">
+				66% (3)
+			</div>
+		</div>
+  </div>
+</div>

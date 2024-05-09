@@ -1,0 +1,125 @@
+{% load static  %}
+
+<script>
+    {% comment %} src="{% static '/js/mapbox.js' %}" {% endcomment %}
+    mapboxgl.accessToken = 'pk.eyJ1IjoieW91c2hhbjc3IiwiYSI6ImNsdDdldDZoMzBseHoyanAzdXR5bGJmb2QifQ.vf_7WHFQFyRU60FiEMAW1Q'; 
+    const map = new mapboxgl.Map
+    ({
+      container: 'map',
+      style: 'mapbox://styles/youshan77/clt7g9oro00h601ragj0n316g/draft',
+      center: [120.47160374920969, 23.55617040204181], 
+      zoom: 15.5,
+      attributionControl: false,
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+    map.addControl(new mapboxgl.GeolocateControl
+    ({
+      positionOptions:
+      {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true,
+      showUserHeading: true
+    }));
+
+    const marker = new mapboxgl.Marker
+    ({
+      color: 'red',
+      // draggable: true
+    })
+      .setLngLat([120.47160374920969, 23.55617040204181])
+      .setPopup(new mapboxgl.Popup().setHTML("<h1>~我的位置~</h1>"))
+      .addTo(map);
+
+
+    
+    map.on('load', ()=>{
+      map.setLanguage('zh-Hant');
+    });
+      {% comment %} map.on('load', () =>
+    {
+      map.setLanguage('zh-Hant');
+
+      {% comment %} map.addSource('places',
+      {
+          'type': 'geojson',
+          'data': {
+              'type': 'FeatureCollection',
+              'features': [
+                  {
+                    'type': 'Feature',
+                    'properties':
+                    {
+                      'description':
+                        '<strong>A-bao</strong><hr><p>早午餐餐廳</p>',
+                      'icon': 'restaurant'
+                    },
+                    'geometry':
+                    {
+                      'type': 'Point',
+                      'coordinates': [120.46974753205151, 23.557978576436422]
+                    }
+                  },
+                  {
+                    'type': 'Feature',
+                    'properties':
+                    {
+                      'description':
+                        '<strong>咖啡王國</strong><br><p>內文2</p>',
+                      'icon': 'restaurant'
+                    },
+                    'geometry': {
+                      'type': 'Point',
+                      'coordinates': [120.46958598349691, 23.556936700953077]
+                    }
+                  }
+              ]
+          }
+      });
+      
+      map.addLayer({
+        'id': 'places',
+        'type': 'symbol',
+        'source': 'places',
+        'layout':
+        {
+          'icon-image': ['get', 'icon'],
+          'icon-allow-overlap': true
+        }
+      });
+
+
+      map.on('mouseenter', 'places', (e) => {
+        const coordinates = e.features[0].geometry.coordinates.slice();
+        const description = e.features[0].properties.description;
+
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180)
+        {
+          coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
+
+				const popup = new mapboxgl.Popup()
+				.setLngLat(coordinates)
+				.setHTML(description)
+
+				new mapboxgl.Marker({
+          scale: 0.8,
+          color: "red"
+        })
+        .setLngLat(coordinates)
+				.setPopup(popup)
+        .addTo(map)
+      });
+
+      map.on('mouseenter', 'places', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+      });
+
+      map.on('mouseleave', 'places', (e) => {
+				popup.remove();
+        map.getCanvas().style.cursor = '';
+      });
+    }); {% endcomment %}
+
+  </script>
