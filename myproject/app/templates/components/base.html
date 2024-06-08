@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+<head>
+
+  {% include "./head-info.html" %}
+  
+</head>
+<body class="flex flex-col items-center">
+	{% include "./header.html" %}
+
+	{% block content %}{% endblock %}
+
+	{% include "./footer.html" %}
+	<div id="root"></div>
+	<script src="{% static "/js/test.js" %}"></script>
+	<script src="{% static "/js/flowbite/dist/flowbite.min.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'components/base.html' %}
+{% load static %}
+{% block content %}
+名單<br>
+
+{% for h in head %}
+{{h}}
+{% endfor %}
+<br>
+
+<table bolder="1" class="table border">
+	<tr>
+		<th class="border border-gray-300 px-2 py-2">ID</th>
+		<th class="border border-gray-300 px-2 py-2">使用者名稱</th>
+		<th class="border border-gray-300 px-2 py-2">密碼</th>
+		<th class="border border-gray-300 px-2 py-2">真實姓名</th>
+	</tr>
+	{% for user in  userlist %}
+	<tr>
+		<td class="border border-gray-300 px-2 py-2">{{user.userID}}</td>
+		<td class="border border-gray-300 px-2 py-2">{{user.username}}</td>
+		<td class="border border-gray-300 px-2 py-2">{{user.password}}</td>
+		<td class="border border-gray-300 px-2 py-2">{{user.truename}}</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}

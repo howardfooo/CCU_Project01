@@ -16,15 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
 
 import app.views
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name="index/index.html")),
     path('admin/', admin.site.urls),
-    path('index/', app.views.index),
+    path('map/', app.views.map),
     path('restaurant/', app.views.restaurant),
     path('comments/', app.views.comments),
     path('compile/', app.views.compile),
     path('login/', app.views.login),
     path('signup/', app.views.signup),
+    path('signup/add/', app.views.signupadd),
+    path('userlist/', app.views.userlist),
 ]

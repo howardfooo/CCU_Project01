@@ -1,181 +1,162 @@
-<!DOCTYPE html>
-
+{% extends 'components/base.html' %}
 {% load static %}
+{% block content %}
+<div class="w-[1200px]">
+  <div class="flex justify-between items-center w-[1185px]">
 
-<html>
-<head>
-  
-  {% include "components/head-info.html" %}
-
-  <title>Compile</title>
-
-</head>
-<body class="flex flex-col items-center">
-
-  {% include "components/header.html" %}
-
-  <div class="w-[1200px]">
-    <div class="flex justify-between items-center w-[1185px]">
-
-      <!-- 餐廳名稱 -->
-      <label for="餐廳名稱" class="shadow-lg m-3 w-fit h-fit placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 flex items-center">
-        <div class="text-black font-black">餐廳名稱</div>
-        <div class="border-l-2 border-solid border-gray-500 h-4 ml-3 rounded-lg"></div>
-        <div class="text-gray-500 font-extrabold text-2xl ml-3">A-bao 阿寶早午餐（民雄中正大學店）</div>
-      </label>
-      
-      <div class="flex justify-center w-auto">
-        <div class="flex flex-row items-center ml-4 w-fit">
-          {% comment %} {% include "components/dropdown.html" %} {% endcomment %}
-          <form class="w-36 mr-3 shadow-lg">   
-            <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                    </svg>
-                </div>
-                <input type="search" id="default-search" class="block w-full h-8 p-4 pl-10 text-sm text-gray-900 border border-gray-200 rounded-lg bg-gray-50 focus:border-blue-100 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40 duration-300" placeholder="選擇標籤" required>
-            </div>
-          </form>
-        </div>
-
-        <!-- 餐廳評價(星星) -->
-        <label class="flex m-3 shadow-lg w-fit h-fit rounded-lg border-2 border-gray-200 bg-slate-50 px-5 py-2.5 items-center">
-          <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-          <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-          </svg>
-        </label>
-  
-        <!-- 查看評論 -->
-        <a href="../comments" class="flex items-end m-3 h-fit shadow-xl">
-          <button class="w-full px-6 py-2.5 text-sm font-bold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700">
-            查看評論
-          </button>
-        </a>
-  
+    <!-- 餐廳名稱 -->
+    <label for="餐廳名稱" class="shadow-lg m-3 w-fit h-fit placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 flex items-center">
+      <div class="text-black font-black">餐廳名稱</div>
+      <div class="border-l-2 border-solid border-gray-500 h-4 ml-3 rounded-lg"></div>
+      <div class="text-gray-500 font-extrabold text-2xl ml-3">A-bao 阿寶早午餐（民雄中正大學店）</div>
+    </label>
+    
+    <div class="flex justify-center w-auto">
+      <div class="flex flex-row items-center ml-4 w-fit">
+        {% comment %} {% include "components/dropdown.html" %} {% endcomment %}
+        <form class="w-36 mr-3 shadow-lg">   
+          <div class="relative">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                  </svg>
+              </div>
+              <input type="search" id="default-search" class="block w-full h-8 p-4 pl-10 text-sm text-gray-900 border border-gray-200 rounded-lg bg-gray-50 focus:border-blue-100 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40 duration-300" placeholder="選擇標籤" required>
+          </div>
+        </form>
       </div>
+
+      <!-- 餐廳評價(星星) -->
+      <label class="flex m-3 shadow-lg w-fit h-fit rounded-lg border-2 border-gray-200 bg-slate-50 px-5 py-2.5 items-center">
+        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+        <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+        </svg>
+      </label>
+
+      <!-- 查看評論 -->
+      <a href="../comments" class="flex items-end m-3 h-fit shadow-xl">
+        <button class="w-full px-6 py-2.5 text-sm font-bold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700">
+          查看評論
+        </button>
+      </a>
+
     </div>
-
-    <!-- 評論 -->
-		
-		<form>
-			<div class="shadow-xl w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
-
-				<!-- 文字區 -->
-				<div class="relative px-4 py-2 bg-white rounded-t-lg">
-
-          <!-- 餐廳評價(星星) -->
-          <div class="flex flex-row items-center">
-            <span class="flex mr-3 w-fit h-fit placeholder-gray-400/70 rounded-lg border-2 border-gray-200 bg-slate-50 px-2 py-0.5 items-center">
-              <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-            </span>
-
-            <!-- 篩選 -->
-            <div class="flex flex-row items-center w-fit">
-              <form class="w-36 m-3 shadow-lg">   
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                        </svg>
-                    </div>
-                    <input type="search" id="default-search" class="block w-full h-8 p-4 pl-10 text-sm text-gray-900 border border-gray-200 rounded-lg bg-gray-50 focus:border-blue-100 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40 duration-300" placeholder="選擇標籤" required>
-                </div>
-              </form>
-        
-              <span class="bg-blue-100 text-blue-800 text-xs font-medium m-2 h-fit px-2.5 py-0.5 rounded">#花枝蛋漢堡 ✕</span>
-              <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 h-fit px-2.5 py-0.5 rounded">#薯餅蛋餅 ✕</span>
-            </div>
-            
-          </div>
-					<textarea id="comment" rows="4" class="h-80 w-full p-2 m-2 text-sm font-bold text-gray-900 bg-white border-0 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40" placeholder="寫下你的評論..." required></textarea>
-          
-          <!-- 價錢 -->
-          <div class="absolute top-4 right-4 z-10 flex flex-col items-center border-solid border-2 border-gray-300 rounded-lg p-2 shadow-lg">
-            <div class="text-gray-500 text-xl font-black">人均</div>
-            <div class="w-full mb-2 border-t-2 border-solid border-2 border-gray-200 rounded-full"></div>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100">
-              <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-              <label for="checkbox-item-1" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">0 - 200</label>
-            </div>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100">
-              <input checked id="checkbox-item-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-              <label for="checkbox-item-2" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">200 - 400</label>
-            </div>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100">
-              <input id="checkbox-item-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-              <label for="checkbox-item-3" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">400 - 600</label>
-            </div>
-            <div class="flex items-center p-2 rounded hover:bg-gray-100">
-              <input id="checkbox-item-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
-              <label for="checkbox-item-7" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">
-                <div class="flex flex-row items-center">
-                  $600&nbsp;
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13">
-                    <path d="M12 2L1 14h6v8h10v-8h6L12 2z"/>
-                  </svg>							
-                </div>
-              </label>
-            </div>
-          </div>
-        </div>
-
-				<div class="flex items-center justify-between px-3 py-2 border-t">
-					
-					<!-- Post鈕 -->
-					<button type="submit" class="shadow-xl inline-flex items-center py-2.5 px-4 text-sm font-bold text-center text-black bg-blue-100 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-200 duration-300">
-						張貼
-					</button>
-
-					<!-- 附加文件/設定位置/上傳圖片 -->
-					<div class="flex pl-0 space-x-1 sm:pl-2">
-						<button type="button" class="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 duration-300">
-							<svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
-								<path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6"/>
-							</svg>
-							<span class="sr-only">Attach file</span>
-						</button>
-						<button type="button" class="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 duration-300">
-							<svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-								<path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
-							</svg>
-							<span class="sr-only">Upload image</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</form>
   </div>
 
-  {% include "components/footer.html" %}
+  <!-- 評論 -->
+  
+  <form>
+    <div class="shadow-xl w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
 
-  {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script> {% endcomment %}
-  <script src="{% static "/js/flowbite/dist/flowbite.min.js" %}"></script>
-</body>
-</html>
+      <!-- 文字區 -->
+      <div class="relative px-4 py-2 bg-white rounded-t-lg">
+
+        <!-- 餐廳評價(星星) -->
+        <div class="flex flex-row items-center">
+          <span class="flex mr-3 w-fit h-fit placeholder-gray-400/70 rounded-lg border-2 border-gray-200 bg-slate-50 px-2 py-0.5 items-center">
+            <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+            </svg>
+            <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+            </svg>
+            <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+            </svg>
+            <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+            </svg>
+            <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+            </svg>
+          </span>
+
+          <!-- 篩選 -->
+          <div class="flex flex-row items-center w-fit">
+            <form class="w-36 m-3 shadow-lg">   
+              <div class="relative">
+                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                      <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                      </svg>
+                  </div>
+                  <input type="search" id="default-search" class="block w-full h-8 p-4 pl-10 text-sm text-gray-900 border border-gray-200 rounded-lg bg-gray-50 focus:border-blue-100 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40 duration-300" placeholder="選擇標籤" required>
+              </div>
+            </form>
+      
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium m-2 h-fit px-2.5 py-0.5 rounded">#花枝蛋漢堡 ✕</span>
+            <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 h-fit px-2.5 py-0.5 rounded">#薯餅蛋餅 ✕</span>
+          </div>
+          
+        </div>
+        <textarea id="comment" rows="4" class="h-80 w-full p-2 m-2 text-sm font-bold text-gray-900 bg-white border-0 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-40" placeholder="寫下你的評論..." required></textarea>
+        
+        <!-- 價錢 -->
+        <div class="absolute top-4 right-4 z-10 flex flex-col items-center border-solid border-2 border-gray-300 rounded-lg p-2 shadow-lg">
+          <div class="text-gray-500 text-xl font-black">人均</div>
+          <div class="w-full mb-2 border-t-2 border-solid border-2 border-gray-200 rounded-full"></div>
+          <div class="flex items-center p-2 rounded hover:bg-gray-100">
+            <input id="checkbox-item-1" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+            <label for="checkbox-item-1" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">0 - 200</label>
+          </div>
+          <div class="flex items-center p-2 rounded hover:bg-gray-100">
+            <input checked id="checkbox-item-2" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+            <label for="checkbox-item-2" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">200 - 400</label>
+          </div>
+          <div class="flex items-center p-2 rounded hover:bg-gray-100">
+            <input id="checkbox-item-3" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+            <label for="checkbox-item-3" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">400 - 600</label>
+          </div>
+          <div class="flex items-center p-2 rounded hover:bg-gray-100">
+            <input id="checkbox-item-7" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded">
+            <label for="checkbox-item-7" class="w-full ml-2 text-sm font-medium text-gray-900 rounded">
+              <div class="flex flex-row items-center">
+                $600&nbsp;
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="13" height="13">
+                  <path d="M12 2L1 14h6v8h10v-8h6L12 2z"/>
+                </svg>							
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between px-3 py-2 border-t">
+        
+        <!-- Post鈕 -->
+        <button type="submit" class="shadow-xl inline-flex items-center py-2.5 px-4 text-sm font-bold text-center text-black bg-blue-100 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-200 duration-300">
+          張貼
+        </button>
+
+        <!-- 附加文件/設定位置/上傳圖片 -->
+        <div class="flex pl-0 space-x-1 sm:pl-2">
+          <button type="button" class="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 duration-300">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
+              <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6"/>
+            </svg>
+            <span class="sr-only">Attach file</span>
+          </button>
+          <button type="button" class="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 duration-300">
+            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+              <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z"/>
+            </svg>
+            <span class="sr-only">Upload image</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

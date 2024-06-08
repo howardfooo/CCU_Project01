@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -56,7 +56,9 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [str(BASE_DIR)+"/app/templates", str(BASE_DIR)+"/testblog/template", str(BASE_DIR)+"/testblog/template/FoodieAtlas"],
+        'DIRS': [str(BASE_DIR)+"/myproject/app/templates",
+                 os.path.join(BASE_DIR, "frontend/build")
+                 ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,7 +121,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
-STATICFILES_DIR = [str(BASE_DIR)+"/app/static/"]
+STATICFILES_DIRS = [
+    str(BASE_DIR)+"/myproject/app/static/",
+    ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
