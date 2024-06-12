@@ -2,20 +2,28 @@
 {% load static %}
 {% block content %}
 
+<div id="menu_contianer" class="fixed z-[-10] h-screen w-screen items-center justify-center">
+  <img id="menu" src="data:image/jpeg;base64,{{ restaurant.menu }}" class="absolute inset-0 m-auto z-[102] max-h-[0] duration-200 transi opacity-0 ">
+  <div id="menu_bg" class="fixed flex z-[-9] w-full h-full bg-transparent duration-200 opacity-0 transition-opacity"></div>
+</div>
+
 <div class="w-[1200px]">
+	<!-- 第一排 -->
   <div class="flex justify-between items-center w-[1185px]">
 
+		<!-- 第一排-左側 -->
     <div class="flex flex-row items-center">
+
       <!-- 餐廳名稱 -->
       <div class="shadow-lg m-3 w-fit h-fit rounded-lg border border-gray-200 bg-white px-5 py-2.5 flex items-center">
         <div class="text-black font-black">餐廳名稱</div>
         <div class="border-l-2 border-solid border-gray-500 h-4 ml-3 rounded-lg"></div>
-        <div class="text-gray-500 font-extrabold text-2xl ml-3">A-bao 阿寶早午餐（民雄中正大學店）</div>
-      </div>
-      
-      <!-- 顯示菜單 -->
-      <a href="#" class="inline-flex items-center h-fit px-1 py-1 font-medium text-gray-900 bg-white border border-gray-200 rounded-lg duration-100 hover:bg-gray-100 hover:text-blue-700">
-        <svg class="h-9 w-9" viewBox="-3.2 -3.2 38.40 38.40" xmlns="http://www.w3.org/2000/svg" fill="none" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
+        <div class="text-gray-500 font-extrabold text-2xl ml-3">{{restaurant.Rname}}</div>
+			</div>
+
+			<!-- 顯示菜單 -->
+      <button id="menubtn" class="inline-flex justify-center items-center m-1 bg-white border border-gray-200 rounded-lg">
+        <svg class="w-10 h-10 p-1 text-gray-900 duration-200 hover:bg-gray-100" viewBox="-3.2 -3.2 38.40 38.40" xmlns="http://www.w3.org/2000/svg" fill="none" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.064"></g>
           <g id="SVGRepo_iconCarrier">
@@ -24,21 +32,43 @@
             <circle cx="22" cy="9" r="1" fill="#000000"></circle>
           </g>
         </svg>
+      </button>
+
+      
+
+      <!-- 加入/刪除 最愛 -->
+      {% if ifFav == 0 %}
+      <a href="./fav_add?Rid={{restaurant.Rid}}" class="inline-flex justify-center items-center w-10 h-10 m-1 text-xl text-gray-900 duration-200 hover:bg-gray-100 hover:text-red-700 bg-white border border-gray-200 rounded-lg">
+        <i class="fa-regular fa-heart"></i>
       </a>
+      {% comment %} <button id="fav_add_btn" onclick="fav_add('{{ restaurant.Rid }}', 'restaurant')" class="inline-flex justify-center items-center w-10 h-10 m-1 text-xl text-gray-900 duration-200 hover:bg-gray-100 hover:text-red-700 bg-white border border-gray-200 rounded-lg">
+        <i class="fa-regular fa-heart"></i>
+      </button> {% endcomment %}
+
+      {% else %}
+      <a href="../favorite/fav_del?Rid={{restaurant.Rid}}&back=restaurant"  class="inline-flex justify-center items-center w-10 h-10 m-1 text-xl text-red-700 duration-200 hover:bg-white hover:text-gray-900 bg-gray-100 border border-gray-200 rounded-lg">
+        <i class="fa-solid fa-heart"></i>
+      </a>
+      {% comment %} <button id="fav_del_btn" onclick="fav_del('{{ restaurant.Rid }}', 'restaurant')" class="inline-flex justify-center items-center w-10 h-10 m-1 text-xl text-red-700 duration-200 hover:bg-white hover:text-gray-900 bg-gray-100 border border-gray-200 rounded-lg">
+        <i class="fa-solid fa-heart"></i>
+      </button> {% endcomment %}
+      
+      {% endif %}
       
     </div>
-    
+
+    <!-- 第一排-右側 -->
     <div class="flex justify-center w-auto">
 
       <!-- 前往評論 -->
-      <a href="../compile" class="flex items-end m-3 h-fit shadow-xl">
+      <a href="../compile?Rid={{restaurant.Rid}}" class="flex items-end m-3 h-fit shadow-xl">
         <button class="w-full px-6 py-2.5 text-sm font-bold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700">
           前往評論
         </button>
       </a>
 
       <!-- 查看評論 -->
-      <a href="../comments" class="flex items-end m-3 h-fit shadow-xl">
+      <a href="../comments?Rid={{restaurant.Rid}}" class="flex items-end m-3 h-fit shadow-xl">
         <button class="w-full px-6 py-2.5 text-sm font-bold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700">
           查看評論
         </button>
@@ -48,43 +78,44 @@
   </div>
 
 
-  <!-- 餐廳介紹 -->
+  <!-- 第二排 -->
   <div>
+		
+		<!-- 第二排-左側 -->
     <div class="shadow-lg block relative m-3 w-auto h-fit rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold">
-      <div class="text-black font-black mb-1">餐廳介紹</div>
-      <hr>
       
+			<!-- 餐廳介紹 -->
+			<div class="text-black font-black mb-1">餐廳介紹</div><hr>
       <div class="flex items-center justify-start">
         <div class="text-gray-500 font-black m-2 max-w-xl">
-          提供各式美味豐盛的早午餐選擇。這裡的菜色多元，包括傳統台灣早餐、吐司三明治、麵食、飯食等
+          {{restaurant.introduction}}
+
         </div>
 
         <div class="absolute bottom-0 right-0 flex items-center">
           <!-- 營業時間 -->
           <label class="flex m-3 shadow-lg w-fit h-fit rounded-lg border border-gray-200 bg-slate-50 px-5 py-2.5 items-center">
-            營業時間：星期一 - 星期日 06:30 - 07:30
+            {{restaurant.day}}
           </label>
-
+          <label class="flex m-3 shadow-lg w-fit h-fit rounded-lg border border-gray-200 bg-slate-50 px-5 py-2.5 items-center">
+            {{restaurant.time}}
+          </label>
+          
           <!-- 餐廳評價(星星) -->
-          <label class="flex m-3 shadow-lg w-fit h-fit rounded-lg border-2 border-gray-200 bg-slate-50 px-5 py-2.5 items-center">
-            <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-            <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-              <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-            </svg>
-          </label>
-      </div>
-        
+					<div class="flex mr-3 w-fit h-fit rounded-lg border-2 border-gray-200 bg-slate-50 px-2 py-0.5 items-center">
+						{% for i in restaurant.rate.0 %}
+						<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+							<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+						</svg>
+						{% endfor %}
+						{% for i in restaurant.rate.1 %}
+						<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+							<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+						</svg>
+						{% endfor %}
+					</div>
+          
+				</div>
       </div>
     </div>
   </div>
@@ -98,11 +129,6 @@
       <div class="duration-700 ease-in-out" data-carousel-item="active">
         <img src="{% static '/images/abao1.jpg' %}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
       </div>
-      {% comment %} {% for i in item_range %}
-        <div class="duration-700 ease-in-out" data-carousel-item>
-          <img src="{% static '/images/abao{i}.jpg' %}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-      {% endfor %} {% endcomment %}
 
       <!-- demo -->
       <div class="duration-700 ease-in-out" data-carousel-item>
@@ -148,148 +174,41 @@
   </div>
 </div>
 
-<!-- demo -->
-
-<!-- 餐點類型1 -->
+{% for dishes in dishes_all %}
+{% for dish_type, dishes_part in dishes.items %}
+<!-- 餐點類型 -->
 <div class="w-[1200px] text-gray-500 text-[24px] font-bold ">
-  ▼ 蛋餅
+  ▼ {{dish_type}}
 </div>
 <div class="border-t-2 border-solid border-gray-500 mt-1 w-[1200px] rounded-lg"></div>
 
-<!-- 品項列表1 -->
-<div class="w-[1200px] flex flex-wrap items-center">
+	
+	<!-- 品項列表 -->
+	<div class="w-[1200px] flex flex-wrap items-center">
+    {% for dish in dishes_part %}
+		<a herf="#" class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
+			<div class="mt-1 mb-1">
+				{{dish.Dname}}
+			</div>
+      {% if dish.image != 0 %}
+      <img src="data:image/jpeg;base64,{{ dish.image }}" class="max-w-48 max-h-[94px] rounded-md shadow-lg">
+      {% endif %}
+			<div class="flex items-center mt-auto">
+				{{dish.Dprice}}
+				<img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
+				95% (11)
+			</div>
+		</a>
+    {% endfor %}
+    {% comment %} <button class="shadow-md relative flex flex-col justify-center items-center m-3 w-4 h-3 rounded-lg border border-gray-200 bg-white px-7 py-3 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
+      <div class="flex items-center text-[36px]">
+        •••
+      </div>
+    </button> {% endcomment %}
+  </div>
 
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      薯餅蛋餅
-    </div>
-    <img src="{% static '/images/food/f3.jpg' %}" class="max-w-48 max-h-[94px] rounded-md shadow-lg">
-    <div class="flex items-center mt-auto">
-      $45
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      95% (11)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      玉米蛋餅
-    </div>
-    
-    <div class="flex items-center mt-auto">
-      $35
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      95% (11)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      起司蛋餅
-    </div>
-    <img src="{% static '/images/food/f1.jpg' %}" class="max-w-48 max-h-[94px] rounded-md shadow-lg">
-    <div class="flex items-center mt-auto">
-      $35
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      75% (16)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      肉鬆蛋餅
-    </div>
-    <img src="{% static '/images/food/f2.jpg' %}" class="max-w-48 max-h-[94px] rounded-md shadow-lg">
-    <div class="flex items-center mt-auto">
-      $40
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      85% (13)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      原味蛋餅
-    </div>
-
-    <div class="flex items-center mt-auto">
-      $25
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      86% (14)
-    </div>
-  </button>
   
-  <button class="shadow-md relative flex flex-col justify-center items-center m-3 w-4 h-3 rounded-lg border border-gray-200 bg-white px-7 py-3 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="flex items-center text-[36px]">
-      •••
-    </div>
-  </button>
-</div>
+{% endfor %}
+{% endfor %}
 
-<!-- 餐點類型2 -->
-<div class="w-[1200px] text-gray-500 text-[24px] font-bold ">
-  ▼ 漢堡
-</div>
-<div class="border-t-2 border-solid border-gray-500 mt-1 w-[1200px] rounded-lg"></div>
-
-<!-- 品項列表2 -->
-<div class="w-[1200px] flex flex-wrap items-center">
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      板燒日式雞排蛋漢堡
-    </div>
-
-    <div class="flex items-center mt-auto">
-      $55
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      92% (13)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      泰式辣味卡拉蛋漢堡
-    </div>
-    <img src="{% static '/images/food/f5.jpg' %}" class="max-w-48 max-h-[94px] rounded-md shadow-lg">
-    <div class="flex items-center mt-auto">
-      $70
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      95% (11)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      美式雞腿蛋漢堡
-    </div>
-    <img src="{% static '/images/food/f6.jpg' %}" class="max-w-48 max-h-[94px] rounded-md shadow-lg">
-    <div class="flex items-center mt-auto">
-      $65
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      100% (10)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      板燒牛肉蛋漢堡
-    </div>
-    
-    <div class="flex items-center mt-auto">
-      $45
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      95% (11)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col items-center m-3 w-48 h-[178px] rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="mt-1 mb-1">
-      花醬厚牛培根蛋漢堡
-    </div>
-    <img src="{% static '/images/food/f4.jpg' %}" class="max-w-48 max-h-[94px] rounded-md shadow-lg">
-    <div class="flex items-center mt-auto">
-      $99
-      <img src="{% static '/images/like.png' %}" class="object-contain max-h-4 ml-2 mr-1">
-      87% (15)
-    </div>
-  </button>
-  <button class="shadow-md relative flex flex-col justify-center items-center m-3 w-4 h-3 rounded-lg border border-gray-200 bg-white px-7 py-3 text-gray-500 font-bold capitalize transition-colors duration-500 transform hover:shadow-lg ease-in-out" herf="#">
-    <div class="flex items-center text-[36px]">
-      •••
-    </div>
-  </button>
-
-</div>
 {% endblock %}

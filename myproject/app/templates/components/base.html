@@ -5,10 +5,10 @@
 <html>
 <head>
 
-  {% include "./head-info.html" %}
-  
+	{% include "./head-info.html" %}
+
 </head>
-<body class="flex flex-col items-center">
+<body class="flex flex-col items-center place-items-center overflow-scroll">
 	{% include "./header.html" %}
 
 	{% block content %}{% endblock %}
@@ -16,6 +16,8 @@
 	{% include "./footer.html" %}
 	<div id="root"></div>
 	<script src="{% static "/js/test.js" %}"></script>
+	<script src="{% static '/js/fav_del_add.js' %}"></script>
+	<script src="{% static '/js/menu.js' %}"></script>
 	<script src="{% static "/js/flowbite/dist/flowbite.min.js" %}"></script>
 </body>
 </html>

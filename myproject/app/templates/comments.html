@@ -2,46 +2,55 @@
 {% load static %}
 {% block content %}
 <div class="w-[1200px]">
+
+	<!-- 第一排 -->
   <div class="flex justify-between items-center w-[1185px]">
 
-    <!-- 餐廳名稱 -->
-    <label for="餐廳名稱" class="shadow-lg m-3 w-fit h-fit placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 flex items-center">
-      <div class="text-black font-black">餐廳名稱</div>
-      <div class="border-l-2 border-solid border-gray-500 h-4 ml-3 rounded-lg"></div>
-      <div class="text-gray-500 font-extrabold text-2xl ml-3">A-bao 阿寶早午餐（民雄中正大學店）</div>
-    </label>
+    <!-- 第一排-左側 -->
+		<div class="flex flex-row justify-start items-center">
 
+			<!-- 餐廳名稱 -->
+			<div class="shadow-lg m-3 w-fit h-fit placeholder-gray-400/70 rounded-lg border border-gray-200 bg-white px-5 py-2.5 flex items-center">
+        <div class="text-black font-black">餐廳名稱</div>
+        <div class="border-l-2 border-solid border-gray-500 h-4 ml-3 rounded-lg"></div>
+        <div class="text-gray-500 font-extrabold text-2xl ml-3">{{restaurant.Rname}}</div>
+			</div>
+
+      <!-- 返回餐廳頁面 -->
+      <a href="../restaurant?Rid={{restaurant.Rid}}" class="inline-flex m-1 bg-white border border-gray-200 rounded-lg">
+        {% comment %} <div class="flex justify-center items-center w-12 h-10 font-black text-xl text-gray-700 duration-100 hover:bg-gray-100 hover:text-blue-700" alt="">返回</div> {% endcomment %}
+        <svg class="flex justify-center items-center w-12 h-10 font-black text-xl text-gray-700 duration-100 hover:bg-gray-100 hover:text-blue-700" fill="currentColor" baseProfile="tiny" height="24px" id="Layer_1" version="1.2" viewBox="0 0 24 24" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M12,9.059V6.5c0-0.256-0.098-0.512-0.293-0.708C11.512,5.597,11.256,5.5,11,5.5s-0.512,0.097-0.707,0.292L4,12l6.293,6.207  C10.488,18.402,10.744,18.5,11,18.5s0.512-0.098,0.707-0.293S12,17.755,12,17.5v-2.489c2.75,0.068,5.755,0.566,8,3.989v-1  C20,13.367,16.5,9.557,12,9.059z"/>
+        </svg>
+      </a>
+    </div>
+
+		<!-- 第一排-右側 -->
     <div class="flex justify-center w-auto">
     
-      <!-- 餐廳評價(星星) -->
-      <label class="flex m-3 shadow-lg w-fit h-fit rounded-lg border-2 border-gray-200 bg-slate-50 px-5 py-2.5 items-center">
-        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-        </svg>
-        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-        </svg>
-        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-        </svg>
-        <svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-        </svg>
-        <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-        </svg>
-      </label>
+			<!-- 餐廳評價(星星) -->
+			<div class="flex m-3 shadow-lg w-fit h-fit rounded-lg border-2 border-gray-200 bg-slate-50 px-5 py-2.5 items-center">
+        {% for i in restaurant.rate.0 %}
+					<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+          </svg>
+          {% endfor %}
+          {% for i in restaurant.rate.1 %}
+          <svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+					</svg>
+        {% endfor %}
+      </div>
 
-      <!-- 前往評論 -->
-      <a href="../compile" class="flex items-end m-3 h-fit shadow-xl">
+			<!-- 前往評論 -->
+      <a href="../compile?Rid={{restaurant.Rid}}" class="flex items-end m-3 h-fit shadow-xl">
         <button class="w-full px-6 py-2.5 text-sm font-bold tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700">
           前往評論
         </button>
       </a>
     </div>
-  </div>
+	</div>
 
-  <!-- 篩選 -->
+	<!-- 篩選標籤 -->
   <div class="flex flex-row items-center ml-4 w-fit">
     <form class="w-36 mr-3 shadow-lg">   
       <div class="relative">
@@ -57,9 +66,76 @@
     <span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 h-fit px-2.5 py-0.5 rounded">#花枝蛋漢堡 ✕</span>
     <span class="bg-red-100 text-red-800 text-xs font-medium mr-2 h-fit px-2.5 py-0.5 rounded">#薯餅蛋餅 ✕</span>
   </div>
+	
+	<!-- 評論 -->
+	{% for comment in comments %}
+	<div class="flex overflow-hidden justify-between items-end shadow-lg m-3 w-auto min-h-[128px] rounded-lg border border-gray-200 bg-white px-5 py-4 text-gray-500 font-bold">
+		<div class="flex justify-start items-start">
+			<div class="h-full mr-3 flex flex-col items-center justify-center">
+				<img src="data:image/jpeg;base64,{{ comment.photo }}" class="object-contain max-h-24 rounded-2xl mb-2 shadow-xl">
+				<div class="w-full flex items-center justify-center text-blue-500 text-lg">♛ ✪</div>
+				<div class="w-1/2 -mt-[2px] flex justify-center border-t-2 border-solid border-blue-500 rounded-lg"></div>
+			</div>
+			<div class="max-w-[600px] flex flex-col justify-center">
+				{{comment.comment}}
+				<div class="flex">
 
-  <!-- 評論 -->
-  {% include "components/comments.html" %}
+					<!-- 照片 -->
+					{% for image in comment.images %}
+					<img src="data:image/jpeg;base64,{{ image }}" class="object-contain max-h-60 rounded-2xl mr-3 mt-2 shadow-xl">
+					{% endfor %}
 
+					<!-- 影片 -->
+					{% if comment.video != 0 %}
+					<video class="object-contain max-h-[400px] rounded-2xl mr-3 mt-2 shadow-xl" controls>
+            <source src="data:video/mp4;base64,{{ comment.video }}" type="video/mp4">
+					</video>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		
+		<!-- 右下角 -->
+		<div class="flex flex-row items-end justify-end h-full">
+			
+			<!-- Tag -->
+			{% for tag in comment.tags %}
+			<span class="bg-{{tag.color}}-100 text-{{tag.color}}-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">#{{tag.tag}}</span>
+			{% endfor %}			
+
+			<!-- 餐廳評價(星星) -->
+			<div class="flex mr-3 w-fit h-fit rounded-lg border-2 border-gray-200 bg-slate-50 px-2 py-0.5 items-center">
+				{% for i in comment.rate.0 %}
+				<svg class="w-4 h-4 text-yellow-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+				</svg>
+				{% endfor %}
+				{% for i in comment.rate.1 %}
+				<svg class="w-4 h-4 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+					<path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+				</svg>
+				{% endfor %}
+			</div>
+
+			<!-- 正讚/倒讚 -->
+			<div class="flex flex-col items-center">
+				<div class="flex flex-row">
+					<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+						<img src="{% static '/images/like.png' %}" class="object-contain max-h-10">
+					</a>
+					<a href="#" class="duration-300 hover:bg-blue-100 active:bg-blue-200 p-2 rounded-2xl">
+						<img src="{% static '/images/dislike.png' %}" class="object-contain max-h-10">
+					</a>
+				</div>
+				<div class="flex flex-row items-center">
+					<img src="{% static '/images/like.png' %}" class="object-contain max-h-4 mx-1">
+					95% (11)
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+
+	
 </div>
 {% endblock %}

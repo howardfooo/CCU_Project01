@@ -25,10 +25,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('map/', app.views.map),
     path('restaurant/', app.views.restaurant),
+    path('restaurant/fav_add', app.views.restaurant_fav),
     path('comments/', app.views.comments),
     path('compile/', app.views.compile),
     path('login/', app.views.login),
     path('signup/', app.views.signup),
-    path('signup/add/', app.views.signupadd),
-    path('userlist/', app.views.userlist),
+    path('favorite/', app.views.favorite),
+    path('favorite/fav_del/', app.views.favorite_del),
 ]

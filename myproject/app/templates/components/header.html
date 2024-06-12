@@ -13,7 +13,7 @@
       <form class="w-[800px] shadow-lg mr-3">   
         <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                 </svg>
             </div>
@@ -23,9 +23,11 @@
             </button>
         </div>
       </form>
-      
-      <!-- 登入/登出 -->
-      <nav class="flex space-x-4 font-semibold">
+      <!-- 最愛/登入/登出 -->
+      <nav class="flex items-center space-x-4 font-semibold">
+        <a href="../favorite" class="duration-300 text-2xl hover:bg-red-100 hover:text-red-700 px-2 py-1 rounded">
+          <i class="fa-solid fa-heart"></i>
+        </a>
         <a href="../login" class="duration-300 hover:bg-blue-100 hover:text-blue-700 px-2 py-1 rounded">Log In</a>
         <a href="../signup" class="duration-300 hover:bg-blue-100 hover:text-blue-700 px-2 py-1 rounded">Sign Up</a>
       </nav>
